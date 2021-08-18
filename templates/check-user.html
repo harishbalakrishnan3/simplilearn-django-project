@@ -1,0 +1,26 @@
+<html>
+<head>
+    <title>Check User</title>
+</head>
+<body>
+
+    <h4>Check User</h4>
+    <form method="post">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <input type="submit" value="submit"/>
+    </form>
+
+    {% if found_flag == 1 %}
+        First Name: <strong>{{ fn }}</strong><br/>
+        Last Name: <strong>{{ ln }}</strong><br/>
+        DOB: <strong>{{ dobb }}</strong>
+    {% elif not_beginning == 1 %}
+        <p><strong>No record found!</strong></p>
+    {% endif %}
+    <form action="goHome">
+        <input type="submit" value="Go to home page"/>
+    </form>
+</body>
+
+</html>
